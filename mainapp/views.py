@@ -1,5 +1,4 @@
 # from django.shortcuts import render
-from django.http import HttpResponse
 from django.views.generic import TemplateView
 
 
@@ -25,3 +24,10 @@ class LoginView(TemplateView):
 
 class NewsView(TemplateView):
     template_name = "mainapp/news.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['news_title'] = 'Громкий новостной заголовок'
+        context['news_preview'] = 'Предварительное описание, которое интересует каждого' 
+        return context
+    
