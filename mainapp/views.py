@@ -1,4 +1,4 @@
-# from django.shortcuts import render
+from datetime import datetime
 from django.views.generic import TemplateView
 
 
@@ -30,5 +30,8 @@ class NewsView(TemplateView):
         context['news_title'] = 'Громкий новостной заголовок'
         context['news_preview'] = 'Предварительное описание, которое интересует каждого'
         context['range'] = range(5)
+        context['datetime_obj'] = datetime.now()
         return context
-    
+
+class LoginView(TemplateView):
+    template_name = 'mainapp/login.html'
