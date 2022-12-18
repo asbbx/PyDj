@@ -12,4 +12,6 @@ urlpatterns = [
     path('doc_site/', views.DocSiteView.as_view(), name='doc_site'),
     path('login/', views.LoginView.as_view(), name='login'),
     path('news/', views.NewsView.as_view(), name='news'),
+    path('news/<int:page>/', views.NewsWithPaginatorView.as_view(),
+         name='news_paginator'),
 ]
